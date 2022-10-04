@@ -12,6 +12,7 @@ def start_screen(stdscr):
 
 def display_text(stdscr, target, current, wpm=0):
     stdscr.addstr(target)
+    stdscr.addstr(1, 0, f'WPM: {wpm}')
 
     for i, char in enumerate(current):
         correct_char = target[i]
@@ -26,10 +27,11 @@ def display_text(stdscr, target, current, wpm=0):
 def wpm_test(stdscr):
     target_text = 'Hello world this is some test text for this app!'
     current_text = []
+    wpm = 0
 
     while True:
         stdscr.clear()
-        display_text(stdscr, target_text, current_text)
+        display_text(stdscr, target_text, current_text, wpm)
         stdscr.refresh()
 
         key = stdscr.getkey()
